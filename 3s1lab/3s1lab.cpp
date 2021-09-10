@@ -46,17 +46,7 @@ namespace lab1 {
 				index++;
 			}
 		}
-		/*try {
-			Matrix* matrix = new Matrix;
-			matrix->val = new int[index];
-			matrix->col = new int[index];
-			matrix->row = new int[num_col];
-		}
-		catch (std::bad_alloc& ba)
-		{
-			std::cout << "------ Error: " << ba.what() << std::endl;
-			return nullptr;
-		}*/
+
 		Matrix* matrix = Memory(index, num_col);
 		int counter = 0;
 		for (int i = 0; i < num_col * num_rows; i++) {
