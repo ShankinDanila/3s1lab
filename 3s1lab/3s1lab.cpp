@@ -13,16 +13,13 @@ namespace lab1 {
 				pr = "You are wrong; repeat please!";
 				return nullptr;
 			}
-		} while (num_rows < 1);
-
-		do {
 			std::cout << pr << std::endl;
 			std::cout << "Enter number of columns: --> ";
 			if (getInt(num_col) < 0) {
 				pr = "You are wrong; repeat please!";
 				return nullptr;
 			}
-		} while (num_col < 1);
+		} while (num_rows < 1 && num_col < 1);
 
 		int* line;
 		try {
