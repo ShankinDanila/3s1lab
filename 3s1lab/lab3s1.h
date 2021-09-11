@@ -1,15 +1,15 @@
 namespace lab1 {
 
+	struct Element {
+		int row;
+		int col;
+		int val;
+	};
+
 	struct Matrix {
 		Element* massive;
 		int hight;
 		int width;
-	};
-
-	struct Element {
-		int* row;
-		int* col;
-		int* val;
 	};
 
 	template <typename T>

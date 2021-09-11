@@ -51,7 +51,6 @@ namespace lab1 {
 		Matrix* matrix;
 		try {
 			matrix = new Matrix;
-			//return matrix;
 		}
 		catch (const std::bad_alloc& ba)
 		{
@@ -69,11 +68,11 @@ namespace lab1 {
 		int counter = 0;
 		for (int i = 0; i < num_col * num_rows; i++) {
 			if (line[i] != 0) {
-				matrix->massive->val[counter] = line[i];
+				matrix->massive[counter].val = line[i];
 				int index_col = i % num_col;
 				int index_row = i / num_col;
-				matrix->massive->col[counter] = index_col;
-				matrix->massive->row[counter] = index_row;
+				matrix->massive[counter].col = index_col;
+				matrix->massive[counter].row = index_row;
 				counter++;
 			}
 		}
@@ -106,8 +105,8 @@ namespace lab1 {
 			if (i % matrix->width == 0) {
 				std::cout << std::endl;
 			}
-			if ((matrix->massive->col[index] + matrix->massive->row[index] * matrix->width) == i) {
-				std::cout << " " << matrix->massive->val[index] << ' ';
+			if ((matrix->massive[index].col + matrix->massive[index].row * matrix->width) == i) {
+				std::cout << " " << matrix->massive[index].val << ' ';
 				index++;
 			}
 			else {
@@ -137,14 +136,14 @@ namespace lab1 {
 		}
 
 		for (int i = 0; i < index; i++) {
-			if (matr->massive->col[i] == 0) {
-				sum_numbers = sum_digits(matr->massive->val[i]);
+			if (matr->massive[i].col == 0) {
+				sum_numbers = sum_digits(matr->massive[i].val);
 				for (int j = 0; j < index; j++) {
-					if (matr->massive->row[j] == matr->massive->row[i] && (sum_numbers == sum_digits(matr->massive->val[j]))) {
-						sum_elems += matr->massive->val[j];
+					if (matr->massive[i].row == matr->massive[j].row && (sum_numbers == sum_digits(matr->massive[j].val))) {
+						sum_elems += matr->massive[j].val;
 					}
 				}
-				new_vector[matr->massive->row[i]] = sum_elems;
+				new_vector[matr->massive[i].row] = sum_elems;
 				sum_elems = 0;
 			}
 		}
